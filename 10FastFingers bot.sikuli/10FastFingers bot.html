@@ -1,0 +1,122 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>10FastFingers bot.sikuli</h2> <a href="10FastFingers bot.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">from</span> org.sikuli.natives <span class="kw">import</span> Vision
+Vision.setParameter(<span class="str">"MinTargetSize"</span>, <span class="dig">8</span>) <span class="cmt"># A small value such as 6 makes the matching algorithm be faster.</span>
+<span class="skw">click</span>(<img src="1512739134865.png" />)
+<span class="cmt">#screenshot de selection du bloc note (ici sur linux)
+</span>
+<span class="skw">type</span>(<span class="str">"a"</span>, KEY_CTRL)
+<span class="skw">type</span>(<span class="str">"c"</span>, KEY_CTRL)
+
+yolo = Env.getClipboard()
+
+stop = <span class="dig">0</span>
+mot = []
+yoh = <span class="dig">0</span>
+hey = <span class="dig">0</span>
+hee = <span class="dig">0</span>
+how = <span class="dig">0</span>
+hou = <span class="dig">0</span>
+i = <span class="dig">0</span>
+
+
+<span class="kw">for</span> value <span class="kw">in</span> yolo:
+    <span class="cmt">#popup("val " + yolo[i:(i+2)])
+</span>    <span class="kw">if</span>(value == str(yoh) <span class="kw">or</span> yolo[i:(i+<span class="dig">2</span>)] == str(yoh) <span class="kw">or</span> yolo[i:(i+<span class="dig">3</span>)] == str(yoh)):
+        yolo = yolo.replace(str(yoh),<span class="str">""</span>,<span class="dig">1</span>)
+        hey = <span class="dig">0</span>
+        hee = hey + <span class="dig">1</span>
+        how = yolo.index(<span class="str">"!"</span>,hey)
+        mot.append(yolo[hey:how])
+        yolo = yolo.replace(yolo[hey:(how+<span class="dig">1</span>)],<span class="str">""</span>,<span class="dig">1</span>)
+        yoh = yoh + <span class="dig">1</span>
+        i = -<span class="dig">1</span>
+    i = i + <span class="dig">1</span>
+
+<span class="cmt">#for a,doom in enumerate(mot):
+</span>    <span class="cmt">#paste(doom)
+</span>    <span class="cmt">#type(" " + Key.BACKSPACE)
+</span>
+<span class="skw">click</span>(<img src="1512742055724.png" />)
+<span class="cmt">#screenshot de selection du site 10fastfingers
+</span><span class="skw">sleep</span>(<span class="dig">2</span>)
+<span class="skw">click</span>(<img src="1512742150464.png" />)
+<span class="cmt">#screenshot de selection de la barre du test
+</span>
+<span class="kw">for</span> a,doom <span class="kw">in</span> enumerate(mot):
+    paste(doom)
+    <span class="skw">type</span>(<span class="str">" "</span> + Key.BACKSPACE)
+    <span class="cmt">#sleep(0.1)</span>
+</pre>
+</body>
+</html>
